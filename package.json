@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.7",
+    "@emotion/core": "^10.0.7",
     "emotion": "^10.0.7",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts-ts": "3.1.0",
+    "react-toastify": "^4.5.2",
     "redux": "^4.0.1",
     "redux-react-hook": "^3.1.0"
   },

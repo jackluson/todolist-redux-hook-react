@@ -1,15 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
-  ],
-  "start_url": "./index.html",
+  "name": "Lux Blog",
+  "short_name": "Lux Blog",
+  "description": "About an engineer & designer who loves web.",
+  "icons": [{
+    "src": "/images/128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "/images/512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#2dd6ec",
+  "theme_color": "#0d3",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait"
 }

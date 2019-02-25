@@ -5,7 +5,7 @@ import { StoreContext } from "redux-react-hook";
 import App from "./App";
 import { makeStore } from "./Store/Store";
 
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 const store = makeStore();
 
 ReactDOM.render(
@@ -15,4 +15,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// registerServiceWorker();
+registerServiceWorker();

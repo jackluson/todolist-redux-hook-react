@@ -1,40 +1,149 @@
-import { css } from "emotion";
+/* * @jsx jsx */
+import { css,jsx } from "@emotion/core";
 import * as React from "react";
-import { useMappedState } from "redux-react-hook";
-import { IState } from "../Store/Store";
 import TodoItem from "./TodoItem";
 
-const mapState = (state: IState) => ({
-  lastUpdated: state.lastUpdated,
-  todoCount: state.todos.length
-});
+export interface listProps{
+  type: string;
+  action: string;
+  action1?: string | undefined;
+  title?: string;
+  icon: string;
+}
 
-export default function TodoList() {
-  const { lastUpdated, todoCount } = useMappedState(mapState);
-  return (
-    <div>
-      <div className={styles.count}>You have {todoCount} todos</div>
-      <ul className={styles.todos}>
-        {new Array(todoCount).fill(null).map((_, index) => (
-          <TodoItem index={index} key={index} />
-        ))}
-      </ul>
-      <div className={styles.lastUpdated}>
-        Last updated: {lastUpdated ? new Date(lastUpdated).toString() : "never"}
+interface State {
+  isCollapse: boolean,
+}
+
+interface Props {
+  category:listProps;
+  count: number;
+  // myClick(event: React.MouseEvent<HTMLDivElement>,name:string): void,
+}
+
+export default class TodoList extends React.Component<Props,State> {
+  private myRef:  React.RefObject<HTMLDivElement>;
+  constructor(props: Props) {
+    super(props);
+    console.log("props,",props);
+    this.myRef = React.createRef();
+    this.state = {
+      isCollapse: true,
+    };
+  }
+  componentDidMount() {
+    const node = this.myRef.current;
+    console.dir(node);
+  }
+  toggleCollapse = () =>{
+    let ulElement: HTMLDivElement | null = this.myRef.current;
+    let show: string = this.state.isCollapse ? "block": "none"
+    const ulHeight: string = this.state.isCollapse ? "auto": "0px";
+    if (ulElement){
+      let ulEleChild:any = ulElement.children[0];
+      ulElement.style.display = show;
+      if(this.state.isCollapse){
+        ulElement.style.height = ulEleChild.offsetHeight + "px";
+      }
+      setTimeout(()=>{
+        if(ulElement){
+          ulElement.style.height = ulHeight;
+        }
+      }, 300)
+    }
+    let isCollapse = !this.state.isCollapse;
+    this.setState({ isCollapse });
+  }
+  render() {
+    return (
+      <div
+        // onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+        //   this.props.myClick(e, this.state.name)
+        >
+        <h5 css={styles.title} onClick={this.toggleCollapse}>
+          {this.props.category.title}
+          <span>
+            {this.props.count}
+          </span>
+          <i
+            className={
+              this.state.isCollapse ? "iconfont" : "iconfont close-span"
+            }
+            css={styles.rotateCollapsed}
+          >
+            &#xe621;
+          </i>
+        </h5>
+        <div
+          ref={this.myRef}
+          className="list-box collapsed"
+          css={styles.unCollapsed}
+        >
+          <ul
+          // style={styleList}
+          >
+            {new Array(this.props.count).fill(null).map((_, index) => (
+              <TodoItem
+                index={index}
+                key={index}
+                type={this.props.category.type}
+                icon={this.props.category.icon}
+                action={this.props.category.action}
+                action1={this.props.category.action1}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 const styles = {
+  title: css`
+    position: relative;
+    height: 44px;
+    line-height: 44px;
+    padding-left: 20px;
+    border-bottom: 1.5px solid #fff;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    background: #f39894;
+    font-size: 16px;
+    span {
+      display: inline-block;
+      margin-left: 5px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      line-height: 21px;
+      text-align: center;
+      font-size: 14px;
+    }
+  `,
   count: css`
     font-size: 12px;
   `,
-  lastUpdated: css`
-    color: #666;
-    font-size: 10px;
+  collapsed: css`
+    display: block;
+    height: auto;
   `,
-  todos: css`
-    padding-left: 0;
+  unCollapsed: css`
+    height: 0;
+    display: none;
+  `,
+  rotateCollapsed: css`
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 20px;
+    &.close-span {
+      transform: rotate(90deg);
+    }
   `
 };
