@@ -1,5 +1,6 @@
 import { Action, createStore } from "redux";
 import reducer from "./reducer";
+import { todoUtils } from 'src/utils';
 
 export interface doneState{
   content:string;
@@ -42,12 +43,9 @@ export type Action =
 
 export function makeStore() {
   return createStore(reducer, {
-    lastUpdated: 0,
-    todos: [
-    ],
-    done: [
-    ],
-    undo:[
-    ]
+    lastUpdated: todoUtils.getStoreItem("lastUpdated") || 0,
+    todos: todoUtils.getStoreItem("todos") || [],
+    done: todoUtils.getStoreItem("done") || [],
+    undo:todoUtils.getStoreItem("undo") || []
   });
 }

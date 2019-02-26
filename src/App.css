@@ -1,12 +1,11 @@
 @font-face {
-  font-family: 'iconfont';
-  /* project id 669713 */
-  src: url('//at.alicdn.com/t/font_669713_z6i9iepaoyd.eot');
-  src: url('//at.alicdn.com/t/font_669713_z6i9iepaoyd.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_669713_z6i9iepaoyd.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_669713_z6i9iepaoyd.woff') format('woff'),
-    url('//at.alicdn.com/t/font_669713_z6i9iepaoyd.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_669713_z6i9iepaoyd.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 669713 */
+  src: url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.eot');
+  src: url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.woff') format('woff'),
+  url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.svg#iconfont') format('svg');
 }
 html,body{
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;

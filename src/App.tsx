@@ -6,6 +6,7 @@ import { IState } from "./Store/Store";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import "./App.css";
+import Footer from './components/Footer';
 const styles = {
   root: css``,
   main: css`
@@ -53,6 +54,7 @@ export default function App() {
           Last updated:{" "}
           {lastUpdated ? new Date(lastUpdated).toString() : "never"}
         </div>
+        <Footer></Footer>
       </div>
     </div>
   );
