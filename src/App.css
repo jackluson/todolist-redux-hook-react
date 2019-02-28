@@ -7,11 +7,23 @@
   url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.ttf') format('truetype'),
   url('//at.alicdn.com/t/font_669713_ky0nfbfg96k.svg#iconfont') format('svg');
 }
-html,body{
+html,body,ul,li,p,div,h1,h2,h3,h4,h5{
+  padding: 0;
+  margin: 0;
+}
+body{
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  position: relative;
+  min-height: 900px;
+  padding-bottom: 70px;
+}
+@media only screen and (max-width:780px) {
+  body{
+    min-height:630px;
+  }
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -23,10 +35,7 @@ html,body{
 
 }
 
-html,body,ul,li,p,div,h1,h2,h3,h4,h5{
-  padding: 0;
-  margin: 0;
-}
+
 .collapsed {
   margin: 0;
   overflow: hidden;

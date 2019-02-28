@@ -11,19 +11,18 @@ export default function Footer(){
 }
 const styles = {
   root: css`
-    position:fixed;
-    bottom: 40px;
+    position:absolute;
+    bottom: 15px;
     left:0;
     width: 100%;
     text-align: center;
     h3,a{
-      font-size:16px;
+      font-size:14px;
       color: #a2a2a2;
-      margin-bottom:8px;
       text-decoration:none;
       i{
         margin-left:10px;
-        font-size:22px;
+        font-size:20px;
       }
     }
   `
